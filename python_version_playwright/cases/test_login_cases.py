@@ -1,7 +1,7 @@
 from playwright.sync_api import Page, expect
 import re
-from python_for_playwright.test_data import login_page_locator as login_page
-from python_for_playwright.pages import login_page
+from python_version_playwright.test_data import login_page_locator as login_page
+from python_version_playwright.pages import login_page
 import pytest
 
 
