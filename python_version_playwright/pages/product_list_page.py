@@ -12,6 +12,7 @@ class product_list_page_locator:
                            "> input"
     product_name_input = "#app > div > div.main-container > section > div > div.filter-container > div:nth-child(3) > " \
                          "input "
+    no_search_result = "暂无数据"
 
 
 def click_search_button(page: Page):
