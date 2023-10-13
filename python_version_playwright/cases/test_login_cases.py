@@ -19,5 +19,5 @@ def test_example(take_screenshot, open_page, page: Page):
 
 
 @pytest.mark.parametrize("username,password", [("hogwarts", "test12345")])
-def test_cases_for_login(open_page, page: Page, username, password):
+def test_cases_for_login(take_screenshot, open_page, page: Page, username, password):
     login_page.login(page, username, password)
