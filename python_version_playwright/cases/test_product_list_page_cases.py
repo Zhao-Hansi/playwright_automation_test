@@ -9,5 +9,5 @@ def test_search_product_by_id(page: Page):
     login_page.login(page, login_page.login_page_locator.right_username, login_page.login_page_locator.right_password)
     home_page.go_to_product_list_page(page)
     product_list_page.search_product_by_id(page, "1")
-    # expect(page.get_by_placeholder("暂无数据")).to_be_visible()
+    expect(page.get_by_text("暂无数据")).to_be_visible()
 
