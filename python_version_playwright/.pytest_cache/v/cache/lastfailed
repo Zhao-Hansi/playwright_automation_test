@@ -1,5 +1,6 @@
 {
   "cases/product_list_page_cases.py": true,
   "cases/test_login_cases.py": true,
-  "cases/test_product_list_page_cases.py": true
+  "cases/test_product_list_page_cases.py": true,
+  "cases/test_login_cases.py::test_example[chromium]": true
 }

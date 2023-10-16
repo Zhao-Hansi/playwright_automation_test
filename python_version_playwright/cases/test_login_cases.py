@@ -4,11 +4,11 @@ import pytest
 from playwright.sync_api import Page
 
 from python_version_playwright.pages import login_page
-from python_version_playwright.common_function.common import open_page, take_screenshot
+from python_version_playwright.common_function.common import open_login_page, take_screenshot
 
 
 @pytest.mark.login
-def test_example(take_screenshot, open_page, page: Page):
+def test_example(take_screenshot, open_login_page, page: Page):
     page.get_by_placeholder(login_page.login_page_locator.username).fill(login_page.login_page_locator.right_username)
     page.get_by_placeholder(login_page.login_page_locator.password).click()
     page.get_by_placeholder(login_page.login_page_locator.password).fill(login_page.login_page_locator.right_password)
@@ -21,5 +21,5 @@ def test_example(take_screenshot, open_page, page: Page):
 
 @pytest.mark.login
 @pytest.mark.parametrize("username,password", [("hogwarts", "test12345")])
-def test_cases_for_login(take_screenshot, open_page, page: Page, username, password):
+def test_cases_for_login(take_screenshot, open_login_page, page: Page, username, password):
     login_page.login(page, username, password)

@@ -1,1 +1,3 @@
-[]
+[
+  "cases/test_login_cases.py::test_example[chromium]"
+]
