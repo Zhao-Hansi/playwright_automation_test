@@ -2,5 +2,6 @@
   "cases/product_list_page_cases.py": true,
   "cases/test_login_cases.py": true,
   "cases/test_product_list_page_cases.py": true,
-  "cases/test_login_cases.py::test_example[chromium]": true
+  "cases/test_login_cases.py::test_example[chromium]": true,
+  "cases/test_login_cases.py::test_login_failed[chromium-hogwarts1-test12345-\\u7528\\u6237\\u5e10\\u53f7\\u6216\\u5bc6\\u7801\\u4e0d\\u6b63\\u786e]": true
 }

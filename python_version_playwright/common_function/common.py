@@ -1,10 +1,11 @@
 import pytest
-from playwright.sync_api import Page
+from playwright.sync_api import Page, sync_playwright
 
 
 @pytest.fixture
 def open_login_page(page: Page):
     page.goto("https://litemall.hogwarts.ceshiren.com/#/login")
+    page.set_default_timeout(3000)
 
 
 def test_login_success(open_login_page):
