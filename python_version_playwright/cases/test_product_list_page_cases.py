@@ -3,11 +3,10 @@ from playwright.sync_api import Page, expect
 from python_version_playwright.pages import product_list_page
 from python_version_playwright.pages import login_page
 from python_version_playwright.pages import home_page
-from python_version_playwright.common_function.common import open_login_page, take_screenshot
 
 
 @pytest.mark.product
-def test_search_product_by_id(take_screenshot, open_login_page, page: Page):
+def test_search_product_by_id(page: Page):
     login_page.login(page, login_page.login_page_locator.right_username, login_page.login_page_locator.right_password)
     home_page.go_to_product_list_page(page)
     product_list_page.search_product_by_id(page, "1")
