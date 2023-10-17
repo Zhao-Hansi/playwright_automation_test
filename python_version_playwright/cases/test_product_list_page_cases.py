@@ -3,6 +3,7 @@ from playwright.sync_api import Page, expect
 from python_version_playwright.pages import product_list_page
 from python_version_playwright.pages import login_page
 from python_version_playwright.pages import home_page
+from python_version_playwright.common_function.common import open_login_page, take_screenshot
 
 
 @pytest.mark.product

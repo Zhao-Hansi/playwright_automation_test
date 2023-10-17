@@ -17,7 +17,7 @@ def take_screenshot(request, page):
     yield
     if request.node.rep_call.failed:
         test_name = request.node.name
-        screenshot_path = f"python_version_playwright/screenshots/{test_name}.png"
+        screenshot_path = f"../screenshots/{test_name}.png"
         page.screenshot(path=screenshot_path, full_page=True)
 
 

@@ -5,6 +5,7 @@ from playwright.sync_api import Page, expect
 
 from python_version_playwright.pages import home_page
 from python_version_playwright.pages.login_page import login_page
+from python_version_playwright.common_function.common import open_login_page, take_screenshot
 
 
 @pytest.mark.flaky(reruns=1)
@@ -19,7 +20,7 @@ def test_example(page: Page):
     page.locator("div").filter(has_text=re.compile(r"^商场管理$")).click()
     page.get_by_role("link", name="行政区域").click()
     page.get_by_role("cell", name=" 北京市").locator("i").click()
-    page.locator("#tags-view-container").get_by_text("首32页").click()
+    page.locator("#tags-view-container").get_by_text("首12页").click()
 
 
 @pytest.mark.login
