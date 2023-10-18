@@ -7,6 +7,7 @@ from python_version_playwright.common_function.common import open_login_page, ta
 
 
 @pytest.mark.product
+@pytest.mark.regression
 def test_search_product_by_id(page: Page):
     LoginPage = login_page(page)
     HomePage = home_page(page)
