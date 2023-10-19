@@ -17,10 +17,6 @@ def test_example(page: Page):
     LoginPage.password.click()
     LoginPage.password.fill(LoginPage.right_password)
     LoginPage.login_button.click()
-    page.locator("div").filter(has_text=re.compile(r"^商场管理$")).click()
-    page.get_by_role("link", name="行政区域").click()
-    page.get_by_role("cell", name=" 北京市").locator("i").click()
-    page.locator("#tags-view-container").get_by_text("首12页").click()
 
 
 @pytest.mark.login
