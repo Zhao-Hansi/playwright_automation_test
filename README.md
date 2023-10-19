@@ -27,3 +27,7 @@ npx playwright test --reporter=html
 ```commandline
 npx playwright show-report    
 ```
+### Python version record the video and take a screenshot when the cases is failed
+```commandline
+python3 -m pytest --headed --video retain-on-failure --screenshot=only-on-failure --output=./python_version_playwright/test-result -n 2
+```

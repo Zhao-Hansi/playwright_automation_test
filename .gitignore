@@ -3,3 +3,4 @@ node_modules/
 /playwright-report/
 /playwright/.cache/
 /python_version_playwright/screenshots
+/python_version_playwright/test-result

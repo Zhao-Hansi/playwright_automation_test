@@ -30,7 +30,7 @@ class TestDemo():
         self.page.goto("http://www.baidu.com")
 
         self.page.click('id=s-top-loginbtn')
-        self.page.pause()
+        # self.page.pause()
 
         with self.context.expect_page() as new_page_info:
             self.page.click('"立即注册"')  # Opens a new tab
@@ -56,10 +56,9 @@ def test_alert():
     context = browser.new_context()
     page = context.new_page()
     page.goto("https://sahitest.com/demo/confirmTest.htm")
-    page.pause()
+    # page.pause()
     page.locator('body > form > input[type=button]:nth-child(1)').click()
     page.on("dialog", lambda dialog: print(dialog.message()))
     page.on("dialog", lambda dialog: dialog.accept())
     page.on("dialog", lambda dialog: dialog.dismiss())
-    time.sleep(5000)
 

@@ -20,7 +20,7 @@ def test_example(page: Page):
     page.locator("div").filter(has_text=re.compile(r"^商场管理$")).click()
     page.get_by_role("link", name="行政区域").click()
     page.get_by_role("cell", name=" 北京市").locator("i").click()
-    page.locator("#tags-view-container").get_by_text("首页").click()
+    page.locator("#tags-view-container").get_by_text("首12页").click()
 
 
 @pytest.mark.login
@@ -43,4 +43,12 @@ def test_cases_for_login(page: Page, username, password):
 def test_login_failed(open_login_page, take_screenshot, page: Page, username, password, expect_message):
     LoginPage = login_page(page)
     LoginPage.login(username, password)
-    page.on("dialog", lambda dialog: expect(dialog.message().to_contain_text(expect_message)))
+    with page.expect_popup() as popup_info:
+        page.get_by_role('button').click()
+    popup = popup_info.value
+
+    popup.wait_for_load_state()
+    print(popup.title())
+    # page.on("dialog", lambda dialog: print(dialog.message))
+    # page.get_by_role("button").click()  # Will hang here
+    # page.on("dialog", lambda dialog: expect(dialog.message().to_contain_text(expect_message)))
