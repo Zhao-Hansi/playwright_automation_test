@@ -5,7 +5,7 @@ from playwright.sync_api import Page, expect
 
 from python_version_playwright.pages.home_page import home_page
 from python_version_playwright.pages.login_page import login_page
-from python_version_playwright.common_function.common import open_login_page, take_screenshot
+from python_version_playwright.common_function.common import open_login_page, take_screenshot, pop_up_listen
 
 
 @pytest.mark.flaky(reruns=1)
@@ -38,8 +38,9 @@ def test_cases_for_login(page: Page, username, password):
 
 
 @pytest.mark.xfail(reason='the handle dialog function is not ready')
+@pytest.mark.login
 @pytest.mark.parametrize("username,password,expect_message", [("hogwarts1", "test12345", "用户帐号或密码不正确")])
 def test_login_failed(open_login_page, take_screenshot, page: Page, username, password, expect_message):
     LoginPage = login_page(page)
     LoginPage.login(username, password)
-    LoginPage.handle_dialog(page)
+    page.on("dialog", lambda dialog: expect(dialog.message().to_contain_text(expect_message)))

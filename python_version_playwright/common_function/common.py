@@ -1,5 +1,6 @@
+import playwright
 import pytest
-from playwright.sync_api import Page, sync_playwright
+from playwright.sync_api import Page
 
 
 @pytest.fixture(scope='function', autouse=True)
@@ -24,3 +25,13 @@ def take_screenshot(request, page):
 @pytest.fixture
 def record_video(page: Page):
     pass
+
+
+def pop_up_listen(page: Page):
+    with page.expect_popup() as popup_info:
+        page.click('button[name="登录"]')
+    popup = popup_info.value
+
+    popup.wait_for_load_state()
+    print(popup.title())
+    return popup.title()
