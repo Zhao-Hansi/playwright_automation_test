@@ -4,3 +4,4 @@ node_modules/
 /playwright/.cache/
 /python_version_playwright/screenshots
 /python_version_playwright/test-result
+*.env

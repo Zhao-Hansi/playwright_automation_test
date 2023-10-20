@@ -1,3 +1,5 @@
 pytest
 pytest-rerunfailures
 playwright
+pytest_dotenv
+pytest-playwright-visual

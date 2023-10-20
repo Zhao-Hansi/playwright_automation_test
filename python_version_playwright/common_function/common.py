@@ -1,6 +1,7 @@
 import playwright
 import pytest
 from playwright.sync_api import Page
+from python_version_playwright.pages.login_page import login_page
 
 
 @pytest.fixture(scope='function', autouse=True)
@@ -35,3 +36,24 @@ def pop_up_listen(page: Page):
     popup.wait_for_load_state()
     print(popup.title())
     return popup.title()
+
+
+# @pytest.fixture(scope='session', autouse=True)
+# def create_login_context(playwright):
+#     browser = playwright.chromium.launch(headless=False, slow_mo=300)
+#     context = browser.new_context()
+#     page = context.new_page()
+#     LoginPage = login_page(page)
+#     page.goto("https://litemall.hogwarts.ceshiren.com/#/login")
+#     page.set_default_timeout(3000)
+#     LoginPage.login(LoginPage.right_username, LoginPage.right_password)
+#     context.storage_state(path='./state.json')
+#     yield context
+#
+#
+# def login_with_context(create_login_context):
+#     context = create_login_context
+#     page = context.new_page()
+#     page.goto("https://litemall.hogwarts.ceshiren.com/#/dashboard")
+#     page.set_default_timeout(3000)
+#     yield page
